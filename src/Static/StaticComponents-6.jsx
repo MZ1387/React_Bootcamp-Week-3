@@ -33,40 +33,59 @@ class Static extends Component {
     ]
   };
 
-  updateCurrentSong = (song) => {
-    if (song !== this.state.currentSong) {
-      this.setState(() => ({
-        currentSong: song
-      }));
-    } else {
-      this.setState(() => ({
-        currentSong: null
-      }));
+    updateCurrentSong = (song) => {
+        // console.log('Currently Playing:', song);
+        this.setState(() => ({ currentSong: song }))
     }
-  }
 
-  updateSongCount = () => {
-    if (this.state.currentSong === null) {
-      this.setState((prevState) => ({
-        songCount: prevState.songCount + 1
-      }));
+  // updateCurrentSong = (song) => {
+  //   if (song !== this.state.currentSong) {
+  //     this.setState(() => ({
+  //       currentSong: song
+  //     }));
+  //   } else {
+  //     this.setState(() => ({
+  //       currentSong: null
+  //     }));
+  //   }
+  // }
+
+    updateSongCount = () => {
+        console.log('+1 Song Count');
+        this.setState({ songCount: this.state.songCount + 1 })
     }
-  }
 
-  updateSongState = (songClicked) => {
-    this.setState((prevState) => ({
-      songs: prevState.songs.map((song) => {
-          if (songClicked === song.name) {
-            return {
-              ...song,
-              playing: !song.playing
-            };
-          } else {
-            return song;
-          }
-        })
-    }));
-  }
+    updateSongState = (songClicked) => {
+        // console.log('Now Playing:', songClicked);
+        this.setState((prevState) => ({ songCount: prevState.songCount + 1 }))
+    }
+
+    updateSongState = (songClicked) => {
+        console.log('Now Playing:', songClicked);
+    }
+
+  // updateSongCount = () => {
+  //   if (this.state.currentSong === null) {
+  //     this.setState((prevState) => ({
+  //       songCount: prevState.songCount + 1
+  //     }));
+  //   }
+  // }
+  //
+  // updateSongState = (songClicked) => {
+  //   this.setState((prevState) => ({
+  //     songs: prevState.songs.map((song) => {
+  //         if (songClicked === song.name) {
+  //           return {
+  //             ...song,
+  //             playing: !song.playing
+  //           };
+  //         } else {
+  //           return song;
+  //         }
+  //       })
+  //   }));
+  // }
 
   render() {
     const { currentSong, songCount, songs } = this.state;
